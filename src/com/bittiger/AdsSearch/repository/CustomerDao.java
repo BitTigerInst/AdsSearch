@@ -23,6 +23,6 @@ public class CustomerDao {
         
     public void create(User p) {
         System.out.println(this.mongoTemplate == null);
-        this.mongoTemplate.insert(p, "Test1");
+        this.mongoTemplate.insert(p, "customer");
     }
 }
