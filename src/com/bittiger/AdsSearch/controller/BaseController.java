@@ -22,9 +22,20 @@ public class BaseController {
         return "home";
     }
     
+    @RequestMapping(value = "/home2")
+    public String getHome2() {
+        logger.info("Hit controler2");
+        return "home";
+    }
+    
     @RequestMapping(value = "/createAd", method=RequestMethod.GET)
-    public String getIndex() {
+    public String saveData() {
         service.createFakeAd();
+        return "index";
+    }
+    
+    @RequestMapping(value = "/index")
+    public String getIndex() {
         return "index";
     }
 }
