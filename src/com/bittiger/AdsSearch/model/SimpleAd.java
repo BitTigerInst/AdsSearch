@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "simple-ad")
 public class SimpleAd {
+    
     @Id
     private BigInteger id;
     
@@ -18,6 +19,16 @@ public class SimpleAd {
     private String companyName;
     
     private String content;
+    
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public BigInteger getId() {
         return id;
