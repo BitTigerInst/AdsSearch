@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:http use-expressions="true" auto-config="true">
+		<security:intercept-url pattern="/login*" access="permitAll" />
+		<security:intercept-url pattern="/loggedout" access="permitAll" /> 
+		<security:intercept-url pattern="/register" access="isAuthenticated()" />
+		<security:intercept-url pattern="/resources/**" access="permitAll" />
+		<security:intercept-url pattern="/*" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+		<security:form-login 	login-page="/login"
+					 			always-use-default-target='true'
+					 			default-target-url="/home"
+								authentication-failure-url="/login?failed=true" /> 
+		<security:logout logout-success-url="/login?logout=true"
+			invalidate-session="true" logout-url="/logout" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider ref="userAuthenticationProvider" />
+	</security:authentication-manager> 
+	<security:global-method-security secured-annotations="enabled"></security:global-method-security>
+	
+	<bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="daoLoginService"></property>
+		<property name="passwordEncoder" ref="passwordEncoder">
+		</property>
+	</bean>
+		
+	<bean id="daoLoginService"
+		class="com.bittiger.AdsSearch.service.DaoLoginService" autowire="byType">
+	</bean>
+	
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</bean>
+
+</beans>

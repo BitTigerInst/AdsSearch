@@ -17,7 +17,7 @@ public class User {
     String gender;
     
     List<String> keywords;
-
+    
     public String getId() {
         return id;
     }
