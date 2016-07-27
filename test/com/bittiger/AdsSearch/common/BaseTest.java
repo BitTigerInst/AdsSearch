@@ -7,7 +7,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-        "classpath:com/bittiger/AdsSearch/config/spring-beans.xml"
+        "classpath:com/bittiger/AdsSearch/config/spring-beans.xml",
+        "classpath:com/bittiger/AdsSearch/config/mongo-test-config.xml"
     })
 public class BaseTest {
 
