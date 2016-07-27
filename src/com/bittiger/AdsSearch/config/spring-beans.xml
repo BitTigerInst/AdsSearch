@@ -45,12 +45,5 @@
 		<!-- Disable Caching -->
         <property name="cacheable" value="false"></property>
 	</bean> 
-	
-	<mongo:mongo host="localhost" port="27017" id="mongo" />
-	<mongo:db-factory dbname="demo" mongo-ref="mongo" id="mongoDbFactory" />
 
-	<bean id="mongoTemplate"
-		class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
-	</bean>
 </beans>
