@@ -12,38 +12,36 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.bittiger.AdsSearch.model.User;
-import com.bittiger.AdsSearch.repository.UserDao;
+import com.bittiger.AdsSearch.utils.UserInfo;
+import com.bittiger.AdsSearch.utils.UserRole;
 
 @Service("daoLoginService")
 public class DaoLoginService implements UserDetailsService {
     
     @Autowired
-    UserDao userDao;
+    UserService userService;
+    
     
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        if (StringUtils.isBlank(username)) {
-//            throw new UsernameNotFoundException("No valid username provided");
-//        }
-//        
-//        User user = userDao.retrievePersonByUserName(username, false);
-//        
-//        if (person == null) {
-//            throw new UsernameNotFoundException("Username doesn't exist");
-//        }
-//        
-//        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority> ();
-//        UserRole role = new UserRole("ROLE_" + person.getAccountType());
-//        
-//        authorities.add(role);
-//        
-//        UserInfo ui = new UserInfo(user.getUsername(), 
-//                person.getPassword(), 
-//                person.getId(), 
-//                authorities);
-//        
-//        return ui;
-        return null;
+        if (StringUtils.isBlank(username)) {
+            throw new UsernameNotFoundException("No valid username provided");
+        }
+        
+        User user = userService.findUserByUsername(username);
+        
+        if (user == null) {
+            throw new UsernameNotFoundException("Username doesn't exist");
+        }
+        
+        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority> ();
+        UserRole role = new UserRole("ROLE_USER");
+        
+        authorities.add(role);
+        
+        UserInfo ui = new UserInfo(user.getUsername(), user.getPassword(), user.getId(), authorities);
+        
+        return ui;
     }
 
 }
