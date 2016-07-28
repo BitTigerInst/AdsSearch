@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title layout:title-pattern="$CONTENT_TITLE">login</title>
+	<object th:include="fragments/head :: head" th:remove="tag" />
+</head>
+<body>
+<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-default">
+					<div class="panel-heading">
+						<h1 class="panel-title">Please Sign In</h1>
+					</div>
+					<div
+						th:if="${param.failed != null and param.failed[0].equals('true')}">
+						<p class="alert alert-danger">
+							<strong>Login Error !</strong> Incorrect login information
+						</p>
+					</div>
+					<div
+						th:if="${param.logout != null and param.logout[0].equals('true')}">
+						<p class="alert alert-success">
+							<strong>Logout !</strong> You have logged out.
+						</p>
+					</div>
+					<div class="panel-body">
+						<form name="f" role="form" th:action="@{/login}" method="post"
+							class="login-form">
+							<fieldset>
+								<div class="form-group"> 
+									<input
+										id="username" name="username" class="form-control"
+										placeholder="username..." type="text" autofocus="autofocus"></input>
+								</div>
+								<div class="form-group">
+									<input
+										id="password" name="password" class="form-control"
+										placeholder="Password..." type="password" value=""></input>
+								</div>
+								<button type="submit" class="btn btn-lg btn-success btn-block">Sign
+									in!</button>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

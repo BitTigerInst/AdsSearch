@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import HelloWorld from './components/HelloWorld.jsx';
+import router from './router/router.jsx'
 
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
@@ -14,8 +15,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<HelloWorld />
-				<p>Hi</p>
+				{router}
 			</div>
 		);
 	}
