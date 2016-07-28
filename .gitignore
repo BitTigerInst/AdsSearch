@@ -3,3 +3,4 @@ WebContent/resources/public/bundle.js
 /build/
 /target/
 push.sh
+/.settings/

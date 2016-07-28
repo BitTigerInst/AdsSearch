@@ -33,6 +33,14 @@ public class UserService {
         return userDao.findAllUsers();
     }
     
+    public void deleteUserByUsername(String username) {
+        userDao.deleteUserByUsername(username);
+    }
+    
+    public void deleteUser(User user) {
+        userDao.deleteUser(user);
+    }
+    
     public User findUserByUsername(String username) {
         return userDao.findUserByUsername(username);
     }

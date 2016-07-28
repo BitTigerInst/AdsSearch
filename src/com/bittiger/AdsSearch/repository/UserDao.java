@@ -26,4 +26,12 @@ public class UserDao extends BaseDao{
         return template.findAll(User.class);
     }
     
+    public void deleteUser(User user) {
+        template.remove(user);
+    }
+    
+    public void deleteUserByUsername(String username) {
+        Query query = new Query(Criteria.where(USERNAME).is(username));
+        template.remove(query, User.class);
+    }
 }

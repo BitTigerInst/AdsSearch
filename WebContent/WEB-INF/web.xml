@@ -30,7 +30,8 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-	  		classpath:com/bittiger/AdsSearch/config/spring-beans.xml
+	  		classpath:com/bittiger/AdsSearch/config/spring-beans.xml,
+	  		classpath:com/bittiger/AdsSearch/config/spring-security.xml,
 	  		classpath:com/bittiger/AdsSearch/config/mongo-config.xml
   		</param-value>
 	</context-param>
