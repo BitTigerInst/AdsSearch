@@ -10,12 +10,10 @@
 
 	<security:http use-expressions="true" auto-config="true">
 		<security:intercept-url pattern="/index" access="permitAll" />
-		<security:intercept-url pattern="/login*" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/loggedout" access="permitAll" /> 
-		<security:intercept-url pattern="/register" access="isAuthenticated()" />
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
-		<security:intercept-url pattern="/*" access="isAuthenticated()"/>
-		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+		<security:intercept-url pattern="/*" access="permitAll"/>
 		<security:form-login 	login-page="/login"
 					 			always-use-default-target='true'
 					 			default-target-url="/home"
