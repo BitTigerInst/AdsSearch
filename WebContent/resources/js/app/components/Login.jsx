@@ -40,7 +40,7 @@ export default class Login extends Component {
 								<div className="form-group">
 									<input type="text" ref="username" placeholder="username..."></input>
 									<input type="password" ref="password" placeholder="password"></input>
-
+									<input type="hidden" name="_csrf" value="d252d321-2673-497d-a793-7d6459ca1113" />
 									<button type="submit" className="btn btn-primary">Login!</button>
 								</div>
 							</form>

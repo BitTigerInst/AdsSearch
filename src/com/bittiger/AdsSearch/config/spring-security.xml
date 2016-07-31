@@ -14,9 +14,10 @@
 		<security:intercept-url pattern="/loggedout" access="permitAll" /> 
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/*" access="permitAll"/>
+		<security:csrf disabled="true" />
 		<security:form-login 	login-page="/login"
 					 			always-use-default-target='true'
-					 			default-target-url="/home"
+					 			default-target-url="/index"
 								authentication-failure-url="/login?failed=true" /> 
 		<security:logout logout-success-url="/login?logout=true"
 			invalidate-session="true" logout-url="/logout" />

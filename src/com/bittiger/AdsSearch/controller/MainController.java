@@ -1,7 +1,5 @@
 package com.bittiger.AdsSearch.controller;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bittiger.AdsSearch.service.BasicService;
 import com.bittiger.AdsSearch.service.DaoLoginService;
-import com.bittiger.AdsSearch.utils.UserInfo;
+import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
 
 @Controller
@@ -39,11 +37,15 @@ public class MainController {
     }
     
     @RequestMapping(value = "/login", method=RequestMethod.POST)
-    public @ResponseBody HttpServletResponse login(@RequestParam(value="username") String username,
-            @RequestParam(value="password") String password, HttpServletResponse response) {
+    public @ResponseBody AjaxResponseBody login(@RequestParam(value="username") String username,
+            @RequestParam(value="password") String password) {
             
         UserDetails ui = loginService.loadUserByUsername(username);
         
-       return null;
+        if (ui.getPassword() != password) {
+            return new AjaxResponseBody(AjaxResponseBody.ERROR);
+        } else {
+            return new AjaxResponseBody(AjaxResponseBody.SUCCESS);
+        }
     }
 }
