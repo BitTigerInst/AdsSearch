@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import actions from '../actions/actions.jsx';
 
 class AdsSearch extends Component {
-	handleChange() {
-		var {dispatch} = this.props;
-		var searchText = this.refs.searchText.value;
-		dispatch(actions.setSearchText(searchText));
+	constructor(props) {
+		super(props);
+
+		this.state = {token: ''};
 	}
 
 	render() {
@@ -17,11 +17,18 @@ class AdsSearch extends Component {
 				<div className="row">
 					<div className="col-xs-offset-3 col-md-6">
 						<input type="text" className="input-lg" ref="searchText" placeholder="Search Ads here..."
-							onChange={ (e) => {this.handleChange}}	/>
+							onChange={(event) => this.onInputChange(event.target.value)}/>
 					</div>	
 				</div>
 			</div>
 		)
+	}
+
+	onInputChange(token) {
+		this.setState({
+			token: token
+		});
+		this.props.onSearchTokenChange(token);
 	}
 
 };

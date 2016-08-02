@@ -15,6 +15,7 @@ public class AjaxResponseBody {
      * @param type
      */
     public AjaxResponseBody(String type) {
+      this.data = new HashMap<String, Object>();
       this.type = type;
     }
 
@@ -32,6 +33,10 @@ public class AjaxResponseBody {
     public void putData(String paramName, Object param) {
         this.data.put(paramName, param);
     }
+    
+    public Object getParam(String paramName) {
+        return this.data.get(paramName);
+    }
 
     public String getMessage() {
         return message;
@@ -47,14 +52,6 @@ public class AjaxResponseBody {
 
     public void setError(String error) {
         this.error = error;
-    }
-
-    public HashMap<String, Object> getData() {
-        return data;
-    }
-
-    public void setData(HashMap<String, Object> data) {
-        this.data = data;
     }
 
     public String getType() {
