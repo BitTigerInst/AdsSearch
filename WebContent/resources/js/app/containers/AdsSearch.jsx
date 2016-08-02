@@ -13,10 +13,10 @@ class AdsSearch extends Component {
 		var {dispatch, searchText} = this.props;
 
 		return (
-			<div className="container container-fluid">
+			<div className="container_header">
 				<div className="row">
-					<div className="col-lg-12">
-						<input type="search" ref="searchText" placeholder="Search Ads here..."
+					<div className="col-xs-offset-3 col-md-6">
+						<input type="text" className="input-lg" ref="searchText" placeholder="Search Ads here..."
 							onChange={ (e) => {this.handleChange}}	/>
 					</div>	
 				</div>

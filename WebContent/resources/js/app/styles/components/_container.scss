@@ -5,3 +5,35 @@
 	padding: 0;
 	margin-bottom: 2rem;
 }
+
+.page {
+	margin-left: 120px;
+	margin-right: 120px;
+}
+
+.center-title {
+	text-align: center;
+	margin: 0;
+	padding: 2rem 0;
+}
+
+.container_header {
+	border-bottom: 1px solid $light-grey-border;
+	padding: 1rem;
+
+	label {
+		cursor: pointer;
+		font-size: 1rem;
+	}
+
+	> :last-child {
+		display: flex;
+		align-items: center;
+	};
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
