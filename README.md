@@ -25,10 +25,11 @@ This project provides a website which user can search for ads matching with the 
   * **Yi Wang** (yiak.wy@github.com): Algorithm developer
   * **Wanjun Fan** (tianshubao1@github.com): Backend developer 
   * **Tianshu Bao** (sabrinafan@github.com): Frontend developer
-  * **Shiyao Liu** (shiyaoeating@github.com): full-stack developer
+  * **Shiyao Liu** (shiyaoeating@github.com): Full-stack developer
+  * **Xingbang Liu** (url): Algorithm developer
 
 ## Scheduling 
-  * Preparation Week(Jul 18 - Jul 24)
+  * Preparation Weeks(Jul 18 - Jul 31)
     - [x] Integrate Spring framework and finish configuration
     - [x] Build boilerplate for ReactJs and Redux
     - [x] Use Spring Data to connect to local MongoDB
@@ -37,9 +38,11 @@ This project provides a website which user can search for ads matching with the 
     - [x] All team members be able to access the initial page (done local environment configuration)
     - [x] Determine the basic models of core objects
     - [x] Distribute jobs for next week to team members
-    - [ ] Authentication with Spring Security, React Route 
+  * Coding Week(Aug 1 - Aug 8)
+    - [x] Authentication with Spring Security, React Route 
     - [ ] Fake Ads generator
     - [ ] Search page mockup
     - [ ] Ads register page mockup
-  
+    - [ ] Search page implementation
+    - [ ] Dao, Service methods and tests 
   
