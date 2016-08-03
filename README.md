@@ -26,6 +26,7 @@ This project provides a website which user can search for ads matching with the 
   * **Wanjun Fan** (tianshubao1@github.com): Backend developer 
   * **Tianshu Bao** (sabrinafan@github.com): Frontend developer
   * **Shiyao Liu** (shiyaoeating@github.com): full-stack developer
+  * **Xingbang Liu (url): Algorithm developer
 
 ## Scheduling 
   * Preparation Week(Jul 18 - Jul 24)
