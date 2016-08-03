@@ -132,6 +132,17 @@
 		    <artifactId>commons-lang3</artifactId>
 		    <version>3.4</version>
 		</dependency>
+		<!-- Dependencies for lucene -->
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-core</artifactId>
+		    <version>5.5.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-analyzers-common</artifactId>
+		    <version>5.5.2</version>
+		</dependency>
 	</dependencies>
 
 
