@@ -1,0 +1,2 @@
+book: textbook, sci-fi, novel, fiction, children, comic
+music instrument: piano, guitar

@@ -13,7 +13,8 @@ export default class SearchApp extends Component {
 		super(props);
 
 		this.state = {
-			ads: []
+			ads: [],
+			tokens: '',
 		}
 	}
 

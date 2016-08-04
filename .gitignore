@@ -2,5 +2,6 @@ WebContent/resources/node_modules/
 WebContent/resources/public/bundle.js
 /build/
 /target/
+target/
 push.sh
 /.settings/
