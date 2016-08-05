@@ -15,10 +15,11 @@ export default class SearchApp extends Component {
 		this.state = {
 			ads: [],
 			tokens: '',
+			userId: -1
 		}
 	}
 
-	adsSearch(tokens) {
+	search(tokens) {
 		var url = "/AdsSearch/search"
 		var param = {
 			tokens: tokens
@@ -37,7 +38,7 @@ export default class SearchApp extends Component {
 	      	 	<div className="row">
 	      	 		<div className="col-lg-12 centered">
 		      	 		<div className="container container-fluid page">
-	      		 			<AdsSearch onSearchTokenChange={token => this.adsSearch(token)}/>
+	      		 			<AdsSearch onSearchTokenChange={token => this.search(token)}/>
 	  		 			</div>
   		 			</div>
       		 	</div>

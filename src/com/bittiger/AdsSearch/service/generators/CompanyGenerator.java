@@ -2,15 +2,13 @@ package com.bittiger.AdsSearch.service.generators;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CompanyGenerator {
-    public static final int MIN_LENGTH = 4;
-    public static final int MAX_LENGTH = 10;
+public class CompanyGenerator extends FakeDataGenerator {
+    public static final int COMPANY_NAME_MIN_LENGTH = 4;
+    public static final int COMPANY_NAME_MAX_LENGTH = 10;
     
     
     public List<String> generateNCompanies(int n) {
@@ -24,12 +22,7 @@ public class CompanyGenerator {
     }
     
     public String generateOneCompany() {
-        int length = this.generateLength();
-        
-        return RandomStringUtils.random(length);
+        return this.generateRandomString(COMPANY_NAME_MIN_LENGTH, COMPANY_NAME_MAX_LENGTH);
     }
     
-    private int generateLength() {
-        return new Random().nextInt(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
-    }
 }

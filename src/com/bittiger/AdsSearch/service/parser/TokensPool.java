@@ -9,17 +9,40 @@ import java.util.HashSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class KeywordsFileParser {
-    Logger logger = LoggerFactory.getLogger(KeywordsFileParser.class);    
+import com.bittiger.AdsSearch.config.AppProps;
 
-    private HashMap<String, HashSet<String>> keywordsPool = new HashMap<>();
+public class TokensPool {
+    private AppProps props;
+    
+    private static final Logger logger = LoggerFactory.getLogger(TokensPool.class);    
+
+    private HashMap<String, HashSet<String>> keywordsPool;
+    
+    private static TokensPool instance;
+
+    public static TokensPool getInstance() {
+        if (instance == null) {
+            instance = new TokensPool();
+            instance.props = new AppProps();
+            instance.keywordsPool = new HashMap<>();
+        }
+        
+        return instance;
+    }
+    
+    private TokensPool() {}
+    
+    public HashMap<String, HashSet<String>> getPool() {
+        return instance.keywordsPool;
+    }
     
     public HashMap<String, HashSet<String>> parse() throws IOException {
         BufferedReader reader = null;
         
         try {
-            reader = new BufferedReader(new FileReader("/Users/liushiyao/Documents/workspace/AdsSearch/AdsSearch/WebContent/resources/files/KeyWords.txt"));
+            reader = new BufferedReader(new FileReader(props.getTokensFileLocation()));
             String line;
             
             while((line = reader.readLine()) != null) {
@@ -56,7 +79,7 @@ public class KeywordsFileParser {
     }
     
     public static void main(String []args) throws IOException {
-        KeywordsFileParser parser = new KeywordsFileParser();
+        TokensPool parser = TokensPool.getInstance();
         parser.parse();
     }
 }

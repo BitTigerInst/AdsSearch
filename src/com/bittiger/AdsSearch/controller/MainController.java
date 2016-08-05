@@ -1,5 +1,7 @@
 package com.bittiger.AdsSearch.controller;
 
+import java.io.IOException;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bittiger.AdsSearch.service.BasicService;
 import com.bittiger.AdsSearch.service.DaoLoginService;
+import com.bittiger.AdsSearch.service.parser.TokensPool;
 import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
 
@@ -35,6 +38,24 @@ public class MainController {
     public String getIndex() {
         return "index";
     }
+    
+    @RequestMapping(value = "/guesswhat", method=RequestMethod.GET)
+    public String getBlackTechPage() {
+        return "black-technology";
+    }
+    
+    @RequestMapping(value = "/processAdsGenerator", method=RequestMethod.GET)
+    public String processAdsGenerator() {
+        try {
+            TokensPool.getInstance().parse();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+        
+    }
+    
     
     @RequestMapping(value = "/login", method=RequestMethod.POST)
     public @ResponseBody AjaxResponseBody login(@RequestParam(value="username") String username,

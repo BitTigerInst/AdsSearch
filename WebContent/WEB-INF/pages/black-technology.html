@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Don't look at me!</title>
+  	<object th:include="fragments/head :: head" th:remove="tag" />
+</head>
+<body>
+	<div>
+		<a th:href="@{/processAdsGenerator}" class="btn btn-primary">Process fake ads generator</a>
+	</div>
+</body>
+</html>

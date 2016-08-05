@@ -1,17 +1,34 @@
 package com.bittiger.AdsSearch.service.generators;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
+
+import java.math.BigInteger;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AdsGenerator {
-    
+import com.bittiger.AdsSearch.model.Ad;
 
-    public static void main(String []args) {
-     
+@Service
+public class AdsGenerator extends FakeDataGenerator{
+    @Autowired
+    private CompanyGenerator companyGenerator;
+    
+    private static final int CONTENT_MIN_LENGTH = 25;
+    private static final int CONTENT_MAX_LENGTH = 100;
+    
+    private static final int TITLE_MIN_LENGTH = 10;
+    private static final int TITLE_MAX_LENGTH = 30;
+    
+    private static final BigInteger DEFAULT_RANK = new BigInteger("0");
+    
+    public Ad generateOneAd() {
+        Ad ad = new Ad();
+        ad.setCompanyName(companyGenerator.generateOneCompany());
+        ad.setContent(this.generateRandomString(CONTENT_MIN_LENGTH, CONTENT_MAX_LENGTH));
+        ad.setRank(DEFAULT_RANK);
+        ad.setTitle(this.generateRandomString(TITLE_MIN_LENGTH, TITLE_MAX_LENGTH));
+        return ad;
     }
+
 }
