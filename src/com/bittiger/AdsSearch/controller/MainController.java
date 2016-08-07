@@ -32,7 +32,7 @@ public class MainController {
     
     @RequestMapping(value = "/createAd", method=RequestMethod.GET)
     public String saveData() {
-        service.createFakeAd();
+//        service.createFakeAd();
         
         return "index";
     }
