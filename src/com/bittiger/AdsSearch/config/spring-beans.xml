@@ -18,7 +18,7 @@
 
 	<context:component-scan base-package="com.bittiger.AdsSearch">
 	</context:component-scan>
-
+	
 	<!-- Configuration of view resolver -->
 	<bean id="thymeleafViewResolver"
 		class="org.thymeleaf.spring4.view.ThymeleafViewResolver">

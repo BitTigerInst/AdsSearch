@@ -10,32 +10,22 @@ import java.util.HashSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bittiger.AdsSearch.config.AppProps;
 
+@Service
 public class TokensPool {
+    
+    @Autowired
     private AppProps props;
     
     private static final Logger logger = LoggerFactory.getLogger(TokensPool.class);    
 
     private HashMap<String, HashSet<String>> keywordsPool;
     
-    private static TokensPool instance;
-
-    public static TokensPool getInstance() {
-        if (instance == null) {
-            instance = new TokensPool();
-            instance.props = new AppProps();
-            instance.keywordsPool = new HashMap<>();
-        }
-        
-        return instance;
-    }
-    
-    private TokensPool() {}
-    
-    public HashMap<String, HashSet<String>> getPool() {
-        return instance.keywordsPool;
+    public TokensPool() {
+        keywordsPool = new HashMap<>();
     }
     
     public HashMap<String, HashSet<String>> parse() throws IOException {
@@ -77,9 +67,5 @@ public class TokensPool {
             }
         }
     }
-    
-    public static void main(String []args) throws IOException {
-        TokensPool parser = TokensPool.getInstance();
-        parser.parse();
-    }
+
 }

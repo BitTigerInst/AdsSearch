@@ -1,2 +1,3 @@
 book: textbook, sci-fi, novel, fiction, children, comic
-music instrument: piano, guitar
+music instrument: piano, guitars
+sports: baseball, basketball, shoes

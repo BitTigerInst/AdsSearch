@@ -27,6 +27,9 @@ public class MainController {
     @Autowired
     private DaoLoginService loginService;
     
+    @Autowired
+    private TokensPool tokensPool;
+    
     @RequestMapping(value = "/createAd", method=RequestMethod.GET)
     public String saveData() {
         service.createFakeAd();
@@ -47,7 +50,7 @@ public class MainController {
     @RequestMapping(value = "/processAdsGenerator", method=RequestMethod.GET)
     public String processAdsGenerator() {
         try {
-            TokensPool.getInstance().parse();
+            tokensPool.parse();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
