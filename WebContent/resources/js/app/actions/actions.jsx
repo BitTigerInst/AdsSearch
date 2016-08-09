@@ -1,14 +1,8 @@
-var $ = require('jquery');
+export const SEARCH_ADS = "SEARCH_ADS";
 
-export var startLogin = () => {
-	return (dispatch, getState) => {
-
-	};
-};
-
-export var setSearchText = (searchText) => {
+export var searchAds = (searchText) => {
 	return {
-		type: 'SET_SEARCH_TEXT',
-		searchText: searchText
+		type: SEARCH_ADS,
+		payload: searchText
 	};
 };
