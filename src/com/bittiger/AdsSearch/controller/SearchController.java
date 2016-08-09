@@ -11,10 +11,10 @@ import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 public class SearchController {
     
     @RequestMapping(value="/search")
-    public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="tokens") String tokens) {
+    public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {
         AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
         
-        response.putData("tokens", tokens);
+        response.putData("searchText", searchText);
         return response;
     }
     

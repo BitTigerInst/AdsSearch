@@ -12,11 +12,22 @@ class SearchBox extends Component {
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
+		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
-	onInputChange(searchText) {
+	onInputChange(event) {
 		this.setState({
-			searchText: searchText
+			searchText: event.target.value
+		});
+	}
+
+	onFormSubmit(event) {
+		event.preventDefault();
+
+		this.props.searchAds(this.state.searchText);
+
+		this.setState({
+			searchText: ''
 		});
 	}
 

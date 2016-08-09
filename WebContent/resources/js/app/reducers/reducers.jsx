@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import SearchTextReducer from './reducer-search-text.jsx';
+import AdsReducer from './reducer_ads';
 
 const RootReducer = combineReducers({
-	searchText: SearchTextReducer
+	ads: AdsReducer
 });
 
 export default RootReducer;
