@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import SearchBox from '../containers/search_box';;
+import SearchBox from '../containers/search_box';
+import AdList from '../containers/ad_list';
 
 export default class SearchApp extends Component {
   	render() {
@@ -11,6 +12,7 @@ export default class SearchApp extends Component {
 		      	 		<div className="container container-fluid page">
 		      	 			<h1 className="center-title">Welcome to Ads Search </h1>
 	      		 			<SearchBox />
+      		 				<AdList />
 	  		 			</div>
 		 			</div>
 	  		 	</div>

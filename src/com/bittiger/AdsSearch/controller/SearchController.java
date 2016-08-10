@@ -1,5 +1,6 @@
 package com.bittiger.AdsSearch.controller;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class SearchController {
         ad1.setContent("Cap One is your best choice!");
         ad1.setCompanyName("Cap One inc");
         ad1.setTitle("Cap One");
+        ad1.setId(new BigInteger("123123"));
         
         Ad ad2 = new Ad();        
         ad2.setContent("Cap Two is your best choice!");
         ad2.setCompanyName("Cap Two inc");
         ad2.setTitle("Cap Two");
-        
+        ad1.setId(new BigInteger("511122"));
         List<Ad> ads = new ArrayList<>();
         ads.add(ad1);
         ads.add(ad2);
