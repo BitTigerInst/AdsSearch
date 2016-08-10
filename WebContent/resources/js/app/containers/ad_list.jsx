@@ -7,7 +7,7 @@ class AdList extends Component {
 		return (
 			<tr key = {ad.id}>
 				<td>{ad.title}</td>
-				<td>{ad.CompanyName}</td>
+				<td>{ad.companyName}</td>
 				<td>{ad.content}</td>
 			</tr>
 		)

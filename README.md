@@ -41,8 +41,12 @@ This project provides a website which user can search for ads matching with the 
   * Coding Week(Aug 1 - Aug 8)
     - [x] Authentication with Spring Security, React Route 
     - [ ] Fake Ads generator
-    - [ ] Search page mockup
+    - [x] Search page mockup
     - [ ] Ads register page mockup
-    - [ ] Search page implementation
+    - [x] Search page implementation
     - [ ] Dao, Service methods and tests 
+    - [ ] Use fake data generator to generate 10 ^ 4 level data
+    - [ ] Invert Index table
+    - [ ] Keywords matching part
+    - [ ] update ranking 
   
