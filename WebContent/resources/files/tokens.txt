@@ -2,4 +2,3 @@ book: textbook, sci-fi, novel, fiction, children, comic
 music: piano, guitars, CD, Oscar
 sports: baseball, basketball, shoes, bat
 cloth: man, woman, shoes, hat, cap, T-shirt, trousers, jean
-

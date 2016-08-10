@@ -5,7 +5,9 @@ import java.util.List;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="company")
 public class Company {
     @Id
     private String id;

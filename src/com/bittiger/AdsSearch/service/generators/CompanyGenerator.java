@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.bittiger.AdsSearch.model.Company;
 import com.bittiger.AdsSearch.utils.RandomUtils;
 
 @Service
@@ -19,17 +20,17 @@ public class CompanyGenerator extends FakeDataGenerator {
                         "Geck", "NewStorm", "Large", "Mil", "Micro", "Universe",
                         "Ubi", "EA-"};
     
-    public List<String> generateNCompanies(List<String> keywords) {
-        List<String> companies = new ArrayList<>();
+    public List<Company> generateNCompanies(int n) {
+        List<Company> companies = new ArrayList<>();
         
-        for (int i = 0; i < keywords.size(); i++) {
-            companies.add(this.generateOneCompany(keywords.get(i)));
+        for (int i = 0; i < n; i++) {
+            companies.add(this.generateOneCompanyWithoutAd());
         }
         
         return companies;
     }
     
-    public String generateOneCompany(String keyword) {
+    public Company generateOneCompanyWithoutAd() {
         StringBuilder builder = new StringBuilder();
         String middle = RandomUtils.generateRandomString(COMPANY_NAME_MIN_LENGTH, COMPANY_NAME_MAX_LENGTH);
         String prefix = CompanyGenerator.
@@ -39,13 +40,14 @@ public class CompanyGenerator extends FakeDataGenerator {
         
         builder.append(prefix);
         builder.append(" ");
-        builder.append(keyword);
-        builder.append(" ");
         builder.append(middle);
         builder.append(" ");
         builder.append(suffix);
         
-        return builder.toString();
+        Company company = new Company();
+        company.setCompanyName(builder.toString());
+        
+        return company;
     }
     
 }

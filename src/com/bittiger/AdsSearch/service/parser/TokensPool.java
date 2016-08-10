@@ -13,12 +13,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bittiger.AdsSearch.config.AppProps;
+import com.bittiger.AdsSearch.model.Compaign;
+import com.bittiger.AdsSearch.repository.AdDao;
 
 @Service
 public class TokensPool {
     
     @Autowired
     private AppProps props;
+    
+    @Autowired
+    private AdDao adDao;
     
     private static final Logger logger = LoggerFactory.getLogger(TokensPool.class);    
 
@@ -57,13 +62,19 @@ public class TokensPool {
     private void processLine(String line) {
         String[] strs = line.split("[:]");
         
-        String groupName = strs[0];
-        this.keywordsPool.put(groupName, new HashSet<String>());
+        String compaignName = strs[0];
+        if (!this.keywordsPool.containsKey(compaignName)) {
+            this.keywordsPool.put(compaignName, new HashSet<String>());
+            adDao.createCompaign(new Compaign(compaignName));
+        }
+
         
         for (int i = 1; i < strs.length; i++) {
             String[] words = strs[i].replaceAll("^[,\\s]+", "").split("[,\\s]+");
             for (String word: words) {
-                this.keywordsPool.get(groupName).add(word);
+                if (!this.keywordsPool.get(compaignName).contains(word)) {
+                    this.keywordsPool.get(compaignName).add(word);
+                }
             }
         }
     }

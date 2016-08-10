@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppProps {
     
-    @Value("${tokens_location}")
+    @Value("/Users/liushiyao/Documents/workspace/AdsSearch/AdsSearch/WebContent/resources/files/tokens.txt")
     private String tokensFileLocation;
 
     public String getTokensFileLocation() {

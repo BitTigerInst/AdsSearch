@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.bittiger.AdsSearch.model.Ad;
-import com.bittiger.AdsSearch.model.User;
+import com.bittiger.AdsSearch.model.Compaign;
+import com.bittiger.AdsSearch.model.Company;
 
 @Repository
 public class AdDao extends BaseDao{
@@ -15,6 +16,14 @@ public class AdDao extends BaseDao{
     
     public void createAd(Ad newad) {
         template.insert(newad);
+    }
+    
+    public void createCompany(Company company) {
+        template.insert(company);
+    }
+    
+    public void createCompaign(Compaign compaign) {
+        template.insert(compaign);
     }
     
     public Ad findAdById(String id) {
