@@ -22,13 +22,6 @@ public class AdsGenerator extends FakeDataGenerator{
     
     private static final BigInteger DEFAULT_RANK = new BigInteger("0");
     
-    public Ad generateOneAd() {
-        Ad ad = new Ad();
-        ad.setCompanyName(companyGenerator.generateOneCompany());
-        ad.setContent(this.generateRandomString(CONTENT_MIN_LENGTH, CONTENT_MAX_LENGTH));
-        ad.setRank(DEFAULT_RANK);
-        ad.setTitle(this.generateRandomString(TITLE_MIN_LENGTH, TITLE_MAX_LENGTH));
-        return ad;
-    }
+  
 
 }

@@ -3,6 +3,7 @@ package com.bittiger.AdsSearch.model;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,23 +12,71 @@ public class Ad {
     @Id
     private BigInteger id;
     
+    @NotEmpty
+    private String compaignId;
+    
+    @NotEmpty
     private List<String> tokens;
     
-    private BigInteger rank;
+    private String companyId;
     
-    private String companyName;
+    private double rankScore;
+    
+    private double relevaceScore;
+    
+    public String getCompaignId() {
+        return compaignId;
+    }
+
+    public void setCompaignId(String compaignId) {
+        this.compaignId = compaignId;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    public double getRankScore() {
+        return rankScore;
+    }
+
+    public void setRankScore(double rankScore) {
+        this.rankScore = rankScore;
+    }
+
+    public double getRelevaceScore() {
+        return relevaceScore;
+    }
+
+    public void setRelevaceScore(double relevaceScore) {
+        this.relevaceScore = relevaceScore;
+    }
+
+    public double getQualityScore() {
+        return qualityScore;
+    }
+
+    public void setQualityScore(double qualityScore) {
+        this.qualityScore = qualityScore;
+    }
+
+    public double getBid() {
+        return bid;
+    }
+
+    public void setBid(double bid) {
+        this.bid = bid;
+    }
+
+    private double qualityScore;
+    
+    private double bid;
     
     private String content;
-    
-    private String title;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public BigInteger getId() {
         return id;
@@ -43,22 +92,6 @@ public class Ad {
 
     public void setTokens(List<String> tokens) {
         this.tokens = tokens;
-    }
-
-    public BigInteger getRank() {
-        return rank;
-    }
-
-    public void setRank(BigInteger rank) {
-        this.rank = rank;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
     }
 
     public String getContent() {
