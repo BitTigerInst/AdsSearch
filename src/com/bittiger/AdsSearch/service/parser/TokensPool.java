@@ -38,7 +38,6 @@ public class TokensPool {
     public TokensPool() throws IOException {
         this.keywordsPool = new HashMap<>();
         this.groupList = new ArrayList<>();
-        this.initialize();
     }
     
     public List<String> grepKeywords() {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bittiger.AdsSearch.service.BasicService;
 import com.bittiger.AdsSearch.service.DaoLoginService;
+import com.bittiger.AdsSearch.service.generators.AdsGenerator;
 import com.bittiger.AdsSearch.service.parser.TokensPool;
 import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
@@ -26,9 +27,12 @@ public class MainController {
 
     @Autowired
     private DaoLoginService loginService;
+
+    @Autowired
+    AdsGenerator adsGenerator;
     
     @Autowired
-    private TokensPool tokensPool;
+    TokensPool tokensPool;
     
     @RequestMapping(value = "/createAd", method=RequestMethod.GET)
     public String saveData() {
@@ -49,16 +53,23 @@ public class MainController {
     
     @RequestMapping(value = "/processAdsGenerator", method=RequestMethod.GET)
     public String processAdsGenerator() {
-        try {
-            tokensPool.parse();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        
         return null;
         
     }
     
+    @RequestMapping(value = "/generateAds", method=RequestMethod.GET)
+    public String generateAds() {
+       try {
+        tokensPool.initialize();
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+       adsGenerator.createNAds(100);
+       adsGenerator.synchroinze();
+       return "index";
+    }
     
     @RequestMapping(value = "/login", method=RequestMethod.POST)
     public @ResponseBody AjaxResponseBody login(@RequestParam(value="username") String username,
