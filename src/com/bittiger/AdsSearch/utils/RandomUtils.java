@@ -26,7 +26,7 @@ public class RandomUtils {
      * @return
      */
     public static  String generateRandomString(int length) {
-        return RandomStringUtils.random(length);
+        return RandomStringUtils.randomAlphabetic(length);
     }
     
     public static String generateRandomString(int minLength, int maxLength) {
