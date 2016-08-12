@@ -9,7 +9,7 @@ import com.bittiger.AdsSearch.model.Company;
 import com.bittiger.AdsSearch.utils.RandomUtils;
 
 @Service
-public class CompanyGenerator extends FakeDataGenerator {
+public class CompanyGenerator {
     public static final int COMPANY_NAME_MIN_LENGTH = 2;
     public static final int COMPANY_NAME_MAX_LENGTH = 8;
     

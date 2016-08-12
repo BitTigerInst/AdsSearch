@@ -33,4 +33,11 @@ public class RandomUtils {
         return generateRandomString(generateLength(minLength, maxLength));
     }
     
+    public static double generateRandomPrice() {
+        return (Math.random() * 5000);
+    }
+    
+    public static String generateRandomStringWithOtherString(String s) {
+        return s + " " + RandomUtils.generateRandomString(generateLength(10, 20));
+    }
 }

@@ -18,11 +18,18 @@ public class Ad {
     @NotEmpty
     private List<String> tokens;
     
+    @Deprecated
     private String companyId;
     
     private double rankScore;
     
-    private double relevaceScore;
+    private double relevanceScore;
+    
+    private double qualityScore;
+    
+    private double bid;
+    
+    private String content;
     
     public String getCompaignId() {
         return compaignId;
@@ -48,12 +55,12 @@ public class Ad {
         this.rankScore = rankScore;
     }
 
-    public double getRelevaceScore() {
-        return relevaceScore;
+    public double getRelevanceScore() {
+        return relevanceScore;
     }
 
-    public void setRelevaceScore(double relevaceScore) {
-        this.relevaceScore = relevaceScore;
+    public void setRelevanceScore(double relevaceScore) {
+        this.relevanceScore = relevaceScore;
     }
 
     public double getQualityScore() {
@@ -71,12 +78,6 @@ public class Ad {
     public void setBid(double bid) {
         this.bid = bid;
     }
-
-    private double qualityScore;
-    
-    private double bid;
-    
-    private String content;
 
     public BigInteger getId() {
         return id;
