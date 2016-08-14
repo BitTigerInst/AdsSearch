@@ -27,11 +27,9 @@ public class SearchController {
         
         Ad ad1 = new Ad();
         ad1.setContent("Cap One is your best choice!");
-        ad1.setId(new BigInteger("123123"));
         
         Ad ad2 = new Ad();        
         ad2.setContent("Cap Two is your best choice!");
-        ad1.setId(new BigInteger("511122"));
         List<Ad> ads = new ArrayList<>();
         ads.add(ad1);
         ads.add(ad2);

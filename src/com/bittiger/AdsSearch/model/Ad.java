@@ -10,9 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "ad")
 public class Ad {
     @Id
-    private BigInteger id;
-    
-    @NotEmpty
+    private String id;
+
     private String compaignId;
     
     @NotEmpty
@@ -79,11 +78,11 @@ public class Ad {
         this.bid = bid;
     }
 
-    public BigInteger getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(String id) {
         this.id = id;
     }
 
