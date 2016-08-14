@@ -45,7 +45,10 @@ public class UserServiceTest extends BaseTest {
         
         int preNum = currentUsers != null ? currentUsers.size() : 0;
         
-        User newUser = new User(USER_1, "1234");
+        User newUser = new User(USER_1, "1234", 
+        						"101.251.252.38",
+        						"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+        						"China");
         userService.createUser(newUser);
         
         assertEquals(userService.findAllUsers().size() - preNum, 1);
@@ -55,7 +58,10 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void testDelete() {
-        User newUser = new User(USER_1, "1234");
+        User newUser = new User(USER_1, "1234",
+								"101.251.252.38",
+								"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+								"China");
         userService.createUser(newUser);
         assertNotNull(userService.findUserByUsername(USER_1));
         userService.deleteUser(newUser);
