@@ -12,7 +12,7 @@ public class Ad {
     @Id
     private String id;
 
-    private BigInteger adId;
+    private Long adId;
     
     private String compaignId;
     
@@ -33,11 +33,11 @@ public class Ad {
     
     private String content;
     
-    public BigInteger getAdId() {
+    public Long getAdId() {
         return adId;
     }
 
-    public void setAdId(BigInteger adId) {
+    public void setAdId(Long adId) {
         this.adId = adId;
     }
 

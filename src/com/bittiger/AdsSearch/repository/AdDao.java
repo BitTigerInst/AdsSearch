@@ -15,6 +15,7 @@ public class AdDao extends BaseDao{
     private static final String ID = "id";
     
     public void createAd(Ad newad) {
+        newad.setAdId(this.incrementSeq("ad"));
         template.insert(newad);
     }
     
