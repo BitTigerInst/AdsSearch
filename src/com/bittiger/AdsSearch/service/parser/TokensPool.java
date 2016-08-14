@@ -35,7 +35,7 @@ public class TokensPool {
     private HashMap<String, HashSet<String>> keywordsPool;
     private List<String> groupList;
     
-    public TokensPool() throws IOException {
+    public TokensPool() {
         this.keywordsPool = new HashMap<>();
         this.groupList = new ArrayList<>();
     }

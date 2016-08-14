@@ -26,7 +26,7 @@ public class AdsGenerator {
     
     private Set<Ad> adsSet = new HashSet<>();
     
-    public void synchroinze() {
+    public void synchronize() {
         for (Ad ad : adsSet) {
             adDao.createAd(ad);
         }

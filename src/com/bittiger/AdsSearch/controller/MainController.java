@@ -57,7 +57,7 @@ public class MainController {
         return null;
         
     }
-    
+ 
     @RequestMapping(value = "/generateAds", method=RequestMethod.GET)
     public String generateAds() {
        try {
@@ -67,7 +67,7 @@ public class MainController {
         e.printStackTrace();
     }
        adsGenerator.createNAds(100);
-       adsGenerator.synchroinze();
+       adsGenerator.synchronize();
        return "index";
     }
     

@@ -5,3 +5,4 @@ WebContent/resources/public/bundle.js
 target/
 push.sh
 /.settings/
+.settings/
