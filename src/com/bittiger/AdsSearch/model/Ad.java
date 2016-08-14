@@ -12,12 +12,15 @@ public class Ad {
     @Id
     private String id;
 
+    private BigInteger adId;
+    
     private String compaignId;
     
     @NotEmpty
     private List<String> tokens;
     
     @Deprecated
+    //TODO This need to be recovered later
     private String companyId;
     
     private double rankScore;
@@ -30,6 +33,14 @@ public class Ad {
     
     private String content;
     
+    public BigInteger getAdId() {
+        return adId;
+    }
+
+    public void setAdId(BigInteger adId) {
+        this.adId = adId;
+    }
+
     public String getCompaignId() {
         return compaignId;
     }
