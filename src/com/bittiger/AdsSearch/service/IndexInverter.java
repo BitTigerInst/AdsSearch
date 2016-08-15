@@ -1,5 +1,6 @@
 package com.bittiger.AdsSearch.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -24,6 +25,15 @@ public class IndexInverter {
     
     public IndexInverter() {
         this.invertedIndex = new HashMap<>();
+    }
+    
+    public List<Ad> searchToken(String token) {
+        List<Ad> adList = new ArrayList<>();
+        if (invertedIndex.containsKey(token)) {
+            adList.addAll(this.invertedIndex.get(token));
+        }
+        
+        return adList;
     }
     
     public void loadToMap(List<Ad> ads) {

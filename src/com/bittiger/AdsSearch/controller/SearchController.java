@@ -18,21 +18,12 @@ import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
 
 @Controller
-public class SearchController {
-    
-    @Autowired
-    IndexInverter indexInverter;
-    
-    @Autowired
-    Tokenizer tokenizer;
-    
+public class SearchController {    
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SearchController.class);
 
     
     @RequestMapping(value="/search")
     public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {
-        AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
-        
 //        Ad ad1 = new Ad();
 //        ad1.setContent("Cap One is your best choice!");
 //        
@@ -43,17 +34,10 @@ public class SearchController {
 //        ads.add(ad2);
         
         List<Ad> ads = new ArrayList<>();
-        List<String> tokens = null;
-        try {
-             tokens = tokenizer.tokenize(searchText);
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-            
-            return AjaxResponseBody.simpleFailure("Error parsing keywords");
-        }
+
+            .
         
-        
-        
+        AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
         response.putData("ads", ads);
         return response;
     }
