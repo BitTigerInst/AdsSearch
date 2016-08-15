@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.util.AttributeFactory;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.tartarus.snowball.ext.PorterStemmer;
 
@@ -18,6 +19,8 @@ public final class Tokenizer {
     private StandardTokenizer tokenizer;
     private PorterStemmer stemmer;
     
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Tokenizer.class);
+
     public Tokenizer() {
         this.factory = AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY;
         this.tokenizer = new StandardTokenizer(factory);
@@ -31,15 +34,25 @@ public final class Tokenizer {
         if (StringUtils.isBlank(text)) return tokens;
         
         this.tokenizer.setReader(new StringReader(text));
-        tokenizer.reset();
-        
-        CharTermAttribute attr = tokenizer.addAttribute(CharTermAttribute.class);
-        while (tokenizer.incrementToken()) {
-            stemmer.setCurrent(attr.toString().toLowerCase());
-            stemmer.stem();
-            tokens.add(stemmer.getCurrent());
+        try {
+            tokenizer.reset();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
         
+        CharTermAttribute attr = tokenizer.addAttribute(CharTermAttribute.class);
+        try {
+            while (tokenizer.incrementToken()) {
+                stemmer.setCurrent(attr.toString().toLowerCase());
+                stemmer.stem();
+                tokens.add(stemmer.getCurrent());
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        tokenizer.close();
         return tokens;
     }
     

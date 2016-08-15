@@ -26,10 +26,10 @@ public class SearchService {
         
         List<String> tokens = null;
         try {
-             tokens = tokenizer.tokenize(searchText);
+            tokens = tokenizer.tokenize(searchText);
         } catch (IOException e) {
-            logger.error(e.getMessage());
-            return ads;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
         
         tokens.stream()
