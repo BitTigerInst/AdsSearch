@@ -14,6 +14,17 @@ public class AjaxResponseBody {
      * The type refers to whether the response is successful or not.
      * @param type
      */
+    
+    public static AjaxResponseBody simpleFailure(String message) {
+        AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.ERROR);
+        return response;
+    }
+    
+    public static AjaxResponseBody simpleSuccess(String message) {
+        AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
+        return response;
+    }
+    
     public AjaxResponseBody(String type) {
       this.data = new HashMap<String, Object>();
       this.type = type;
