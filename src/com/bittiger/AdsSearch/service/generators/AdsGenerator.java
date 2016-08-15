@@ -50,7 +50,6 @@ public class AdsGenerator {
         ad.setQualityScore(0.0);
         ad.setRankScore(0.0);
         ad.setRelevanceScore(0.0);
-        
         return ad;
     }
     

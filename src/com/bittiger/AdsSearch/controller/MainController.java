@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bittiger.AdsSearch.service.BasicService;
 import com.bittiger.AdsSearch.service.DaoLoginService;
 import com.bittiger.AdsSearch.service.generators.AdsGenerator;
 import com.bittiger.AdsSearch.service.parser.TokensPool;
@@ -21,9 +20,6 @@ import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 @Controller
 public class MainController {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(MainController.class);
-    
-    @Autowired
-    private BasicService service;
 
     @Autowired
     private DaoLoginService loginService;
@@ -66,7 +62,7 @@ public class MainController {
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-       adsGenerator.createNAds(100);
+       adsGenerator.createNAds(200);
        adsGenerator.synchronize();
        return "index";
     }

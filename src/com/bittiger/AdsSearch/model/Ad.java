@@ -1,6 +1,5 @@
 package com.bittiger.AdsSearch.model;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,7 +28,7 @@ public class Ad {
     
     private double qualityScore;
     
-    private double bid;
+    private int bid;
     
     private String content;
     
@@ -81,11 +80,11 @@ public class Ad {
         this.qualityScore = qualityScore;
     }
 
-    public double getBid() {
+    public int getBid() {
         return bid;
     }
 
-    public void setBid(double bid) {
+    public void setBid(int bid) {
         this.bid = bid;
     }
 

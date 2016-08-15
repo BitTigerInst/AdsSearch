@@ -33,8 +33,8 @@ public class RandomUtils {
         return generateRandomString(generateLength(minLength, maxLength));
     }
     
-    public static double generateRandomPrice() {
-        return (Math.random() * 5000);
+    public static int generateRandomPrice() {
+        return (int)(Math.random() * 5000);
     }
     
     public static String generateRandomStringWithOtherString(String s) {
