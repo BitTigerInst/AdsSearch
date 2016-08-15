@@ -1,6 +1,5 @@
 package com.bittiger.AdsSearch.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bittiger.AdsSearch.model.Ad;
-import com.bittiger.AdsSearch.service.IndexInverter;
-import com.bittiger.AdsSearch.service.Tokenizer;
+import com.bittiger.AdsSearch.service.SearchService;
 import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
 
@@ -21,6 +19,8 @@ import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 public class SearchController {    
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SearchController.class);
 
+    @Autowired
+    SearchService searchService;
     
     @RequestMapping(value="/search")
     public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {
@@ -33,9 +33,7 @@ public class SearchController {
 //        ads.add(ad1);
 //        ads.add(ad2);
         
-        List<Ad> ads = new ArrayList<>();
-
-            .
+        List<Ad> ads = searchService.search(searchText);
         
         AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
         response.putData("ads", ads);
