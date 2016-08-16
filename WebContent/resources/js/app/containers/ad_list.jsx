@@ -6,9 +6,14 @@ class AdList extends Component {
 	renderAd(ad) {
 		return (
 			<tr key = {ad.id}>
-				<td>{ad.title}</td>
-				<td>{ad.companyName}</td>
+				<td>{ad.rankScore}</td>
+				<td>{ad.adId}</td>
 				<td>{ad.content}</td>
+				<td><a>{ad.url}</a></td>
+				<td>{ad.tokens}</td>
+				<td>{ad.bid}</td>
+				<td>{ad.relevanceScore}</td>
+				<td>{ad.qualityScore}</td>
 			</tr>
 		)
 	}
@@ -19,9 +24,14 @@ class AdList extends Component {
 				<table className="table table-hover">
 					<thead>
 						<tr>
-							<th>Title</th>
-							<th>CompanyName</th>
+							<th>Rank Score</th>
+							<th>Ad Id</th>
 							<th>Content</th>
+							<th>Url</th>
+							<th>Keywords</th>
+							<th>Bid</th>
+							<th>Relevance Score</th>
+							<th>Quality Score</th>
 						</tr>
 					</thead>
 					<tbody>
