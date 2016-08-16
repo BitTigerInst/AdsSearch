@@ -30,7 +30,6 @@ public class LucenePlayground {
                 stemmer.setCurrent(attr.toString().toLowerCase());
                 stemmer.stem();
                 String term = attr.toString();
-                System.out.println(stemmer.getCurrent());
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

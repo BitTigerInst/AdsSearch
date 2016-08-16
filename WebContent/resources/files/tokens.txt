@@ -1,4 +1,6 @@
-book: textbook, sci-fi, novel, fiction, children, comic
+book: textbook, sci-fi, novel, fiction, children, comic, magazine, fantansy, harry potter
 music: piano, guitar, CD, Oscar
-sports: baseball, basketball, shoes, bat
-cloth: man, woman, shoe, hat, cap, T-shirt, trouser, jean
+sport: baseball, basketball, shoes, bat
+cloth: man, woman, shoe, hat, cap, T-shirt, trouser, jean, girl, boy, baby, luggage
+electronic: TV, video, audio, theater, camera, cell phone, headphone, bluetooth, printer, software, computer component, monitor, tablet, iphone, android phone, wearable
+pet: cat, dog, bird, turtle, pet food

@@ -1,6 +1,5 @@
 package com.bittiger.AdsSearch.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
@@ -23,16 +22,7 @@ public class SearchController {
     SearchService searchService;
     
     @RequestMapping(value="/search")
-    public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {
-//        Ad ad1 = new Ad();
-//        ad1.setContent("Cap One is your best choice!");
-//        
-//        Ad ad2 = new Ad();        
-//        ad2.setContent("Cap Two is your best choice!");
-//        List<Ad> ads = new ArrayList<>();
-//        ads.add(ad1);
-//        ads.add(ad2);
-        
+    public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {        
         List<Ad> ads = searchService.search(searchText);
         
         AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);

@@ -29,14 +29,7 @@ public class MainController {
     
     @Autowired
     TokensPool tokensPool;
-    
-    @RequestMapping(value = "/createAd", method=RequestMethod.GET)
-    public String saveData() {
-//        service.createFakeAd();
-        
-        return "index";
-    }
-    
+
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String getIndex() {
         return "index";
@@ -54,15 +47,15 @@ public class MainController {
         
     }
  
-    @RequestMapping(value = "/generateAds", method=RequestMethod.GET)
-    public String generateAds() {
+    @RequestMapping(value = "/generateAds", method=RequestMethod.POST)
+    public String generateAds(@RequestParam(value="number") String number) {
        try {
         tokensPool.initialize();
     } catch (IOException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-       adsGenerator.createNAds(200);
+       adsGenerator.createNAds(Integer.parseInt(number));
        adsGenerator.synchronize();
        return "index";
     }

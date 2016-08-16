@@ -73,15 +73,12 @@ public class TokensPool {
             while((line = reader.readLine()) != null) {
                 this.processLine(line);
             }
-            
-            System.out.println(this.keywordsPool.toString());
-            
+
             return keywordsPool;
         } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
             return null;
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             logger.error(e.getMessage());
             return null;
         } finally {
@@ -92,7 +89,7 @@ public class TokensPool {
     private void processLine(String line) {
         String[] strs = line.split("[:]");
         
-        String groupName = strs[0];
+        String groupName = strs[0].toLowerCase();
         if (!this.keywordsPool.containsKey(groupName)) {
             this.keywordsPool.put(groupName, new HashSet<String>());
             this.groupList.add(groupName);
@@ -103,8 +100,9 @@ public class TokensPool {
         for (int i = 1; i < strs.length; i++) {
             String[] words = strs[i].replaceAll("^[,\\s]+", "").split("[,\\s]+");
             for (String word: words) {
-                if (!this.keywordsPool.get(groupName).contains(word)) {
-                    this.keywordsPool.get(groupName).add(word);
+                String loweredWord = word.toLowerCase();
+                if (!this.keywordsPool.get(groupName).contains(loweredWord)) {
+                    this.keywordsPool.get(groupName).add(loweredWord);
                 }
             }
         }

@@ -9,8 +9,12 @@
 </head>
 <body>
 	<div>
-		<a th:href="@{/processAdsGenerator}" class="btn btn-primary">Process fake ads generator</a>
-		<a th:href="@{/generateAds}" class="btn btn-primary">generatesAds</a>
+		<form class="form"  th:action="@{/generateAds}" method="post">
+			<label for="number">Number
+				<input type="number" id="number" name="number" />
+			</label>
+			<button type="submit" class="btn btn-primary">generatesAds</button>
+		</form>
 	</div>
 </body>
 </html>
