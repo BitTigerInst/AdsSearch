@@ -38,15 +38,20 @@ This project provides a website which user can search for ads matching with the 
     - [x] All team members be able to access the initial page (done local environment configuration)
     - [x] Determine the basic models of core objects
     - [x] Distribute jobs for next week to team members
-  * Coding Week(Aug 1 - Aug 8)
+  * Coding Week(Aug 1 - Aug 22)
     - [x] Authentication with Spring Security, React Route 
-    - [ ] Fake Ads generator
+    - [x] Fake Ads generator
     - [x] Search page mockup
     - [ ] Ads register page mockup
     - [x] Search page implementation
-    - [ ] Dao, Service methods and tests 
-    - [ ] Use fake data generator to generate 10 ^ 4 level data
-    - [ ] Invert Index table
-    - [ ] Keywords matching part
+    - [x] Dao, Service methods and tests 
+    - [x] Invert Index table
+    - [x] Keywords matching part
+    - [x] luncene integration
     - [ ] update ranking 
+    - [ ] Redis Integration
+    - [ ] Fake action generator
+    
+  ## Future Feature
+  	- [ ] deploy on a platform
   
