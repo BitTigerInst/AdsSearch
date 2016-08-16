@@ -16,7 +16,7 @@ import com.bittiger.AdsSearch.model.Counter;
 @Repository
 public class AdDao extends BaseDao{
     private static final String ID = "id";
-    
+    private static final String URL_PREIX = "http://localhost:8080/AdsSearch/accessAd?id=";
     public Long incrementSeq(String collectionName) {
         Counter counter = template.findAndModify(
                 new Query(Criteria.where(Counter.DOCUMENT_NAME).is(Counter.DOCUMENT_AD)), 
@@ -27,7 +27,9 @@ public class AdDao extends BaseDao{
     }
     
     public void createAd(Ad newad) {
-        newad.setAdId(this.incrementSeq("ad"));
+        Long currentAdId = this.incrementSeq("ad");
+        newad.setAdId(currentAdId);
+        newad.setUrl(URL_PREIX + currentAdId);
         template.insert(newad);
     }
     
