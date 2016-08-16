@@ -10,7 +10,7 @@ class AdList extends Component {
 				<td>{ad.adId}</td>
 				<td>{ad.content}</td>
 				<td><a>{ad.url}</a></td>
-				<td>{ad.tokens}</td>
+				<td>{ad.tokens.toString()}</td>
 				<td>{ad.bid}</td>
 				<td>{ad.relevanceScore}</td>
 				<td>{ad.qualityScore}</td>
@@ -23,7 +23,7 @@ class AdList extends Component {
 			<div>
 				<table className="table table-hover">
 					<thead>
-						<tr>
+						<tr>	
 							<th>Rank Score</th>
 							<th>Ad Id</th>
 							<th>Content</th>
