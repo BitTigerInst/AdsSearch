@@ -44,14 +44,14 @@ public final class Tokenizer {
         CharTermAttribute attr = tokenizer.addAttribute(CharTermAttribute.class);
         try {
             while (tokenizer.incrementToken()) {
-                String unstemmedToken = tokenizer.toString();
-                stemmer.setCurrent(attr.toString().toLowerCase());
+                String unstemmedToken = attr.toString().toLowerCase();
+                stemmer.setCurrent(unstemmedToken);
                 stemmer.stem();
                 String stemmedToken = stemmer.getCurrent();
                 tokens.add(unstemmedToken);
                 //Sometimes lucene give weird result...like stem 'boy' to 'boi'
                 if (!stemmedToken.equals(unstemmedToken)) {
-                    tokens.add(unstemmedToken);
+                    tokens.add(stemmedToken);
                 }
             }
         } catch (IOException e) {
