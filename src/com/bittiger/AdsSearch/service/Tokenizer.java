@@ -37,8 +37,7 @@ public final class Tokenizer {
         try {
             tokenizer.reset();
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+            logger.error(e1.getMessage());
         }
         
         CharTermAttribute attr = tokenizer.addAttribute(CharTermAttribute.class);
@@ -55,8 +54,7 @@ public final class Tokenizer {
                 }
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         tokenizer.close();
         return tokens;

@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import uuid from 'uuid';
 
 class AdList extends Component {
+
 	renderAd(ad) {
+		console.log(this.props);
 		return (
 			<tr key = {ad.id}>
 				<td>{ad.rankScore}</td>
 				<td>{ad.adId}</td>
 				<td>{ad.content}</td>
 				<td><a>{ad.url}</a></td>
-				<td>{ad.tokens.toString()}</td>
+				<td>{`${ad.tokens.toString()}&size=${this.props.size}`}</td>
 				<td>{ad.bid}</td>
 				<td>{ad.relevanceScore}</td>
 				<td>{ad.qualityScore}</td>
@@ -19,6 +21,7 @@ class AdList extends Component {
 	}
 
 	render() {
+		console.log(this.props.size);
 		return (
 			<div>
 				<table className="table table-hover">
@@ -44,7 +47,10 @@ class AdList extends Component {
 }
 
 function mapStateToProps({ ads }) {
-	return { ads }; 
+	return {
+		ads: ads,
+		size: ads.length
+	}
 }
 
 export default connect(mapStateToProps)(AdList);

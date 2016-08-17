@@ -28,8 +28,7 @@ public class SearchService {
         try {
             tokens = tokenizer.tokenize(searchText);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         
         tokens.stream()
@@ -38,6 +37,9 @@ public class SearchService {
             })
             .forEach( list -> ads.addAll(list));
         
+        ads.sort((a1, a2) -> {
+            return -1 * Double.compare(a1.getRankScore(), a2.getRankScore());
+        });
         return ads;
     }
 

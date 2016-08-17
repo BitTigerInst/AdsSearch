@@ -51,13 +51,13 @@ public class TokensPool {
         keywords.addAll(keywordsPool.get(groupName));
         
         Collections.shuffle(keywords);
-        
+
         int length = RandomUtils.generateLength(0, keywords.size());
         length = length > 5? length / 2 : length;
         keywords = keywords.stream()
                     .limit(length)
                     .collect(Collectors.toList());
-        
+        keywords.add(groupName);
         return keywords;
         
     }
