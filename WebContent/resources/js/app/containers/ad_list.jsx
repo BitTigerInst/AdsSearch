@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectAd } from '../actions/actions'
 import uuid from 'uuid';
+import { bindActionCreators } from 'redux';
 
 class AdList extends Component {
 
 	renderAd(ad) {
-		console.log(this.props);
 		return (
 			<tr key = {ad.id}>
 				<td>{ad.rankScore}</td>
 				<td>{ad.adId}</td>
 				<td>{ad.content}</td>
-				<td><a>{ad.url}</a></td>
+				<td onClick={() => {this.prps.selectAd(ad)}}>{ad.url}</td>
 				<td>{`${ad.tokens.toString()}&size=${this.props.size}`}</td>
 				<td>{ad.bid}</td>
 				<td>{ad.relevanceScore}</td>
@@ -53,4 +54,8 @@ function mapStateToProps({ ads }) {
 	}
 }
 
-export default connect(mapStateToProps)(AdList);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({selectAd: selectAd}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdList);

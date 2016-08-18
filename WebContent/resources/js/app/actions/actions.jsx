@@ -17,3 +17,10 @@ export var searchAds = (searchText) => {
 		payload: request
 	};
 };
+
+export var selectAd = (ad) => {
+	return {
+		type: 'AD_SELECTED',
+		payload: ad
+	}
+}

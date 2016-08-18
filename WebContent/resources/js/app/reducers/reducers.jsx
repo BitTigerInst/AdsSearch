@@ -4,7 +4,7 @@ import SelectedAdReducer from './reducer_selected_ad'
 
 const RootReducer = combineReducers({
 	ads: AdsReducer,
-	SelectedAd: SelectedAdReducer
+	selectedAd: SelectedAdReducer
 });
 
 export default RootReducer;

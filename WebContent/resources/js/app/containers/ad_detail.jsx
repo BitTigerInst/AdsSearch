@@ -10,7 +10,7 @@ class AdDetail extends Component {
 		return (
 			<div>
 				<h3>Details for:</h3>
-				<div></div>
+				<div>{this.props.ad.content}</div>
 			</div>
 		);
 	}
@@ -18,7 +18,7 @@ class AdDetail extends Component {
 
 function mapStateToProps(state) {
 	return {
-		selectedAd: state.selectedAd
+		ad: state.selectedAd
 	};
 }
 
