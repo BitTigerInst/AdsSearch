@@ -6,23 +6,27 @@ import { bindActionCreators } from 'redux';
 
 class AdList extends Component {
 
-	renderAd(ad) {
-		return (
-			<tr key = {ad.id}>
-				<td>{ad.rankScore}</td>
-				<td>{ad.adId}</td>
-				<td>{ad.content}</td>
-				<td onClick={() => {this.prps.selectAd(ad)}}>{ad.url}</td>
-				<td>{`${ad.tokens.toString()}&size=${this.props.size}`}</td>
-				<td>{ad.bid}</td>
-				<td>{ad.relevanceScore}</td>
-				<td>{ad.qualityScore}</td>
-			</tr>
-		)
+	renderAds() {
+		return this.props.ads.map((ad) => {
+			return (
+				<tr className="clickable-row" key = {ad.id} onClick={() => 
+					{
+						this.props.selectAd(ad)
+					}}>
+					<td>{ad.rankScore}</td>
+					<td>{ad.adId}</td>
+					<td>{ad.content}</td>
+					<td>{ad.url}</td>
+					<td>{ad.tokens.toString()}</td>
+					<td>{ad.bid}</td>
+					<td>{ad.relevanceScore}</td>
+					<td>{ad.qualityScore}</td>
+				</tr>
+			)
+		})
 	}
 
 	render() {
-		console.log(this.props.size);
 		return (
 			<div>
 				<table className="table table-hover">
@@ -39,7 +43,7 @@ class AdList extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{this.props.ads.map(this.renderAd)}
+					   {this.renderAds()}
 					</tbody>
 				</table>
 			</div>

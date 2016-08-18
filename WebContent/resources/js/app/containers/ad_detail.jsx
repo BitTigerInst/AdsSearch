@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 
 class AdDetail extends Component {
 	render() {
-		if (!this.props.selectedAd) {
+		if (!this.props.ad) {
 			return <div>Search ads by typing in some keywords</div>
 		}
-
 		return (
 			<div>
 				<h3>Details for:</h3>
