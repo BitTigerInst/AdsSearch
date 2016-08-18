@@ -27,6 +27,7 @@ class AdList extends Component {
 	}
 
 	render() {
+		this.count = 0;
 		return (
 			<div>
 				<table className="table table-hover">

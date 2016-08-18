@@ -3,6 +3,7 @@ package com.bittiger.AdsSearch.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,15 @@ public class SearchService {
             })
             .forEach( list -> ads.addAll(list));
         
-        ads.sort((a1, a2) -> {
-            return -1 * Double.compare(a1.getRankScore(), a2.getRankScore());
-        });
-        return ads;
+        
+        List<Ad> pagedAds = ads.stream()
+            .sorted((a1, a2) -> {
+                return -1 * Double.compare(a1.getRankScore(), a2.getRankScore());
+            })
+            .limit(10)
+            .collect(Collectors.toList());
+            
+        return pagedAds;
     }
 
 }
