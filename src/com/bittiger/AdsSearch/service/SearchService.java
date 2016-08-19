@@ -18,6 +18,9 @@ public class SearchService {
     IndexInverter indexInverter;
     
     @Autowired
+    AdScoreCalculator calculator;
+    
+    @Autowired
     Tokenizer tokenizer;
     
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SearchService.class);
@@ -38,8 +41,12 @@ public class SearchService {
             })
             .forEach( list -> ads.addAll(list));
         
-        
+        final List<String> finalTokens = tokens;
         List<Ad> pagedAds = ads.stream()
+            .map(ad -> {
+                ad.setRankScore(calculator.calculateRankScore(finalTokens, ad));
+                return ad;
+            })
             .sorted((a1, a2) -> {
                 return -1 * Double.compare(a1.getRankScore(), a2.getRankScore());
             })
