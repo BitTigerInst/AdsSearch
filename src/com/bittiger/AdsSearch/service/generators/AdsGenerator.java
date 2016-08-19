@@ -45,7 +45,7 @@ public class AdsGenerator {
         ad.setCompaignId(UUID.randomUUID().toString());
         
         List<String> keywords = pool.grepKeywords();
-        ad.setProbHit(Math.random());
+        ad.setProbClick(Math.random());
         ad.setTokens(keywords);
         ad.setContent(RandomUtils.generateRandomStringWithOtherString(keywords.toString()));
         ad.setQualityScore(0.0);

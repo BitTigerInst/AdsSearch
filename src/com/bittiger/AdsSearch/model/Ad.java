@@ -22,7 +22,7 @@ public class Ad {
     //TODO This need to be recovered later
     private String companyId;
     
-    private double probHit;
+    private double probClick;
     
     private double rankScore;
     
@@ -124,12 +124,12 @@ public class Ad {
         this.content = content;
     }
 
-    public double getProbHit() {
-        return probHit;
+    public double getProbClick() {
+        return probClick;
     }
 
-    public void setProbHit(double probHit) {
-        this.probHit = probHit;
+    public void setProbClick(double probHit) {
+        this.probClick = probHit;
     }
     
 }
