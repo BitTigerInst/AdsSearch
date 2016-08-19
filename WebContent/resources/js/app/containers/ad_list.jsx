@@ -24,11 +24,10 @@ class AdList extends Component {
 	}
 
 	render() {
-		this.count = 0;
 		return (
 			<div>
-				<table className="table table-hover">
-					<thead>
+				<table className="table table-hover table-bordered">
+					<thead className="thead-inverse" >
 						<tr>	
 							<th>Rank Score</th>
 							<th>Ad Id</th>
