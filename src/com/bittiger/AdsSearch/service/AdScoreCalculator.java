@@ -32,6 +32,15 @@ public class AdScoreCalculator {
         return count / keywordsSize;
     }
     
+    
+    public double calculateRankScore(List<String> tokens, Ad ad) {
+        return this.calculateRankScore(this.calculateQualityScore(tokens, ad), ad.getBid());
+    }
+    
+    public double calculateRankScore(double qualityScore, int bid) {
+        return qualityScore * bid;
+    }
+    
     public double calculateQualityScore(List<String> tokens, Ad ad) {
         return this.calculateQualityScore(this.calculateRelevanceScore(tokens, ad), ad.getProbClick());
     }
