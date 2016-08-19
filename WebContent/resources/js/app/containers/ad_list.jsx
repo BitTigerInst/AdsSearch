@@ -18,9 +18,6 @@ class AdList extends Component {
 					<td>{ad.content}</td>
 					<td>{ad.url}</td>
 					<td>{ad.tokens.toString()}</td>
-					<td>{ad.bid}</td>
-					<td>{ad.relevanceScore}</td>
-					<td>{ad.qualityScore}</td>
 				</tr>
 			)
 		})
@@ -38,9 +35,6 @@ class AdList extends Component {
 							<th>Content</th>
 							<th>Url</th>
 							<th>Keywords</th>
-							<th>Bid</th>
-							<th>Relevance Score</th>
-							<th>Quality Score</th>
 						</tr>
 					</thead>
 					<tbody>
