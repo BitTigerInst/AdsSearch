@@ -24,12 +24,6 @@ public class Ad {
     
     private double probClick;
     
-    private double rankScore;
-    
-    private double relevanceScore;
-    
-    private double qualityScore;
-    
     private int bid;
     
     private String content;
@@ -66,30 +60,6 @@ public class Ad {
 
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
-    }
-
-    public double getRankScore() {
-        return rankScore;
-    }
-
-    public void setRankScore(double rankScore) {
-        this.rankScore = rankScore;
-    }
-
-    public double getRelevanceScore() {
-        return relevanceScore;
-    }
-
-    public void setRelevanceScore(double relevaceScore) {
-        this.relevanceScore = relevaceScore;
-    }
-
-    public double getQualityScore() {
-        return qualityScore;
-    }
-
-    public void setQualityScore(double qualityScore) {
-        this.qualityScore = qualityScore;
     }
 
     public int getBid() {

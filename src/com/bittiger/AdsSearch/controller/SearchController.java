@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bittiger.AdsSearch.model.Ad;
+import com.bittiger.AdsSearch.bean.AdBean;
 import com.bittiger.AdsSearch.service.SearchService;
 import com.bittiger.AdsSearch.utils.AjaxResponseBody;
 
@@ -23,7 +23,7 @@ public class SearchController {
     
     @RequestMapping(value="/search")
     public @ResponseBody AjaxResponseBody searchAds(@RequestParam(value="searchText") String searchText) {        
-        List<Ad> ads = searchService.search(searchText);
+        List<AdBean> ads = searchService.search(searchText);
         
         AjaxResponseBody response = new AjaxResponseBody(AjaxResponseBody.SUCCESS);
         response.putData("ads", ads);

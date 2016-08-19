@@ -48,9 +48,6 @@ public class AdsGenerator {
         ad.setProbClick(Math.random());
         ad.setTokens(keywords);
         ad.setContent(RandomUtils.generateRandomStringWithOtherString(keywords.toString()));
-        ad.setQualityScore(0.0);
-        ad.setRankScore(0.0);
-        ad.setRelevanceScore(0.0);
         return ad;
     }
     
