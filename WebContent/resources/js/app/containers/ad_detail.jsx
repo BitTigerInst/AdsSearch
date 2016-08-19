@@ -16,7 +16,7 @@ class AdDetail extends Component {
 					<li className="list-group-item list-group-item-info">{`Ad Ranking: ${ad.rankScore.toFixed(2)}`}</li>
 					<li className="list-group-item list-group-item-warning">{`Content: ${ad.content}`}</li>
 					<li className="list-group-item list-group-item-success">{`Ad Url: ${ad.url}`}</li>
-					<li className="list-group-item list-group-item-danger">{`Ad RelevanceScore: ${ad.relevanceScore}`}</li>
+					<li className="list-group-item list-group-item-danger">{`Ad RelevanceScore: ${ad.relevanceScore.toFixed(2)}`}</li>
 					<li className="list-group-item list-group-item-info" >{`Ad QualityScore: ${ad.qualityScore.toFixed(2)}`}</li>
 				</ul>
 			</div>

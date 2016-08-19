@@ -52,10 +52,11 @@ public class SearchService {
                 
                 return bean;
             })
+            .filter((bean) -> bean.getRelevanceScore() >= 0.25)
             .sorted((a1, a2) -> {
                 return -1 * Double.compare(a1.getRankScore(), a2.getRankScore());
             })
-            .limit(10)
+            .limit(20)
             .collect(Collectors.toList());
             
         return pagedAds;

@@ -24,7 +24,7 @@ public class AdScoreCalculator {
         
         HashSet<String> tokenSet = new HashSet<>(tokens);
         
-        int count = 0;
+        double count = 0.0;
         for (String adToken : ad.getTokens()) {
             if (tokenSet.contains(adToken)) count++;
         }
