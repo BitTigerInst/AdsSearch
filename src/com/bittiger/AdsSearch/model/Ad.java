@@ -22,6 +22,8 @@ public class Ad {
     //TODO This need to be recovered later
     private String companyId;
     
+    private double probHit;
+    
     private double rankScore;
     
     private double relevanceScore;
@@ -120,6 +122,14 @@ public class Ad {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public double getProbHit() {
+        return probHit;
+    }
+
+    public void setProbHit(double probHit) {
+        this.probHit = probHit;
     }
     
 }
