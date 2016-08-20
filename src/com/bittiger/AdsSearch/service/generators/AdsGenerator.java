@@ -2,6 +2,7 @@ package com.bittiger.AdsSearch.service.generators;
 
 
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,11 @@ public class AdsGenerator {
     public void synchronize() {
         for (Ad ad : adsSet) {
             adDao.createAd(ad);
+        }
+        
+        try {
+            pool.initialize();
+        } catch (IOException e) {
         }
     }
     

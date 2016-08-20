@@ -5,11 +5,6 @@ import uuid from 'uuid';
 import { bindActionCreators } from 'redux';
 
 class AdList extends Component {
-   componentDidUpdate(prevProps, prevState) {
-    	$('#ad-table').DataTable();
-   }
-
-   
 	renderAds() {
 		return this.props.ads.map((ad) => {
 			return (
