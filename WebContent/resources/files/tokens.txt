@@ -2,5 +2,10 @@ book: textbook, sci-fi, novel, fiction, children, comic, magazine, fantansy, har
 music: piano, guitar, CD, Oscar
 sport: baseball, basketball, shoes, bat
 cloth: man, woman, shoe, hat, cap, T-shirt, trouser, jean, girl, boy, baby, luggage
-electronic: TV, video, audio, theater, camera, cell phone, headphone, bluetooth, printer, software, computer component, monitor, tablet, iphone, android phone, wearable
+electronic: TV, video, audio, theater, camera, cell phone, headphone, printer, software, laptop, monitor, tablet, iphone, android, wearable
 pet: cat, dog, bird, turtle, pet food
+kitchen: pot, bowl, microowen, knife, spoon, fork
+food: snack, chip, hamburger
+bedroom: quilt, bed, mattress
+study: desk, lamp, pen, pencil, textbook, ruler
+

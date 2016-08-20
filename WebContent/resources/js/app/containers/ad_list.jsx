@@ -5,7 +5,11 @@ import uuid from 'uuid';
 import { bindActionCreators } from 'redux';
 
 class AdList extends Component {
+   componentDidUpdate(prevProps, prevState) {
+    	$('#ad-table').DataTable();
+   }
 
+   
 	renderAds() {
 		return this.props.ads.map((ad) => {
 			return (
@@ -13,7 +17,6 @@ class AdList extends Component {
 					{
 						this.props.selectAd(ad)
 					}}>
-					<td>{ad.rankScore}</td>
 					<td>{ad.adId}</td>
 					<td>{ad.content}</td>
 					<td>{ad.url}</td>
@@ -26,10 +29,9 @@ class AdList extends Component {
 	render() {
 		return (
 			<div>
-				<table className="table table-hover table-bordered">
+				<table id="ad-table" className="table table-hover table-bordered">
 					<thead className="thead-inverse" >
 						<tr>	
-							<th>Rank Score</th>
 							<th>Ad Id</th>
 							<th>Content</th>
 							<th>Url</th>

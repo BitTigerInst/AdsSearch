@@ -9,18 +9,20 @@ class AdDetail extends Component {
 
 		var ad = this.props.ad;
 		return (
-			<div id="ad-detail">
-				<h3>{`Details for Ad: ${ad.adId}`}</h3>
-				<ul className="list-group">	
-					<li className="list-group-item list-group-item-success">{`Ad Id: ${ad.adId}`}</li>
-					<li className="list-group-item list-group-item-info">{`Ad Ranking: ${ad.rankScore.toFixed(2)}`}</li>
-					<li className="list-group-item list-group-item-warning">{`Content: ${ad.content}`}</li>
-					<li className="list-group-item list-group-item-success">{`Ad Url: ${ad.url}`}</li>
-					<li className="list-group-item list-group-item-danger">{`Ad RelevanceScore: ${ad.relevanceScore.toFixed(2)}`}</li>
-					<li className="list-group-item list-group-item-info" >{`Ad QualityScore: ${ad.qualityScore.toFixed(2)}`}</li>
-					<li className="list-group-item list-group-item-info" >{`Ad Bid: ${ad.bid}`}</li>
-				</ul>
-			</div>
+			<nav className="navbar"  data-spy="affix" data-offset-top="10">
+				<div id="ad-detail" >
+					<h3>{`Details for Ad: ${ad.adId}`}</h3>
+					<ul className="list-group">	
+						<li className="list-group-item list-group-item-success">{`Ad Id: ${ad.adId}`}</li>
+						<li className="list-group-item list-group-item-info">{`Ad Ranking: ${ad.rankScore.toFixed(2)}`}</li>
+						<li className="list-group-item list-group-item-warning">{`Content: ${ad.content}`}</li>
+						<li className="list-group-item list-group-item-success">{`Ad Url: ${ad.url}`}</li>
+						<li className="list-group-item list-group-item-danger">{`Ad RelevanceScore: ${ad.relevanceScore.toFixed(2)}`}</li>
+						<li className="list-group-item list-group-item-info" >{`Ad QualityScore: ${ad.qualityScore.toFixed(2)}`}</li>
+						<li className="list-group-item list-group-item-info" >{`Ad Bid: ${ad.bid}`}</li>
+					</ul>
+				</div>
+			</nav>
 		);
 	}
 }

@@ -48,10 +48,10 @@ This project provides a website which user can search for ads matching with the 
     - [x] Invert Index table
     - [x] Keywords matching part
     - [x] luncene integration
-    - [ ] update ranking 
+    - [x] update ranking 
     - [ ] Redis Integration
     - [ ] Fake action generator
     
-  ## Future Feature
-  	- [ ] deploy on a platform
+ ## Future Feature
+  	- [x] deploy on a platform
   
