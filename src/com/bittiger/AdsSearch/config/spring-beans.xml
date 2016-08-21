@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc
 						http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 						http://www.springframework.org/schema/beans 
@@ -18,32 +16,36 @@
 
 	<context:component-scan base-package="com.bittiger.AdsSearch">
 	</context:component-scan>
-	
+
 	<!-- Configuration of view resolver -->
-	<bean id="thymeleafViewResolver"
-		class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+	<bean id="thymeleafViewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine"></property>
 		<property name="characterEncoding" value="UTF-8"></property>
 		<property name="order" value="1"></property>
 	</bean>
-	
- 	<bean id="templateEngine"
-		class="org.thymeleaf.spring4.SpringTemplateEngine">
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
 		<property name="templateResolver" ref="templateResolver"></property>
 		<property name="additionalDialects">
-			 <set>
-	          <bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect"/>
-        	</set>
-		</property> 
+			<set>
+				<bean
+					class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect" />
+			</set>
+		</property>
 	</bean>
-	
+
 	<bean id="templateResolver"
 		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
 		<property name="prefix" value="/WEB-INF/pages/"></property>
 		<property name="suffix" value=".html"></property>
 		<property name="templateMode" value="HTML5"></property>
 		<!-- Disable Caching -->
-        <property name="cacheable" value="false"></property>
-	</bean> 
+		<property name="cacheable" value="false"></property>
+	</bean>
 
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:use-pool="true" />
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jedisConnectionFactory" />
 </beans>
