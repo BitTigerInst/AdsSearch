@@ -23,8 +23,16 @@ public class IndexInverter {
     
     private Map<String, Set<Ad>> invertedIndex;
     
+    @Autowired
+    private RedisService redisService;
+    
     public IndexInverter() {
         this.invertedIndex = new HashMap<>();
+    }
+    
+    public void refresh() {
+        this.invertedIndex.clear();
+        this.process();
     }
     
     public List<Ad> searchToken(String token) {

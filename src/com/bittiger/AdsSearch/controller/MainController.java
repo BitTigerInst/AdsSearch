@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bittiger.AdsSearch.service.DaoLoginService;
+import com.bittiger.AdsSearch.service.IndexInverter;
 import com.bittiger.AdsSearch.service.generators.AdsGenerator;
 import com.bittiger.AdsSearch.service.parser.TokensPool;
 import com.bittiger.AdsSearch.utils.AjaxResponseBody;
@@ -29,6 +30,9 @@ public class MainController {
     
     @Autowired
     TokensPool tokensPool;
+    
+    @Autowired
+    IndexInverter indexInverter;
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String getIndex() {
@@ -39,25 +43,25 @@ public class MainController {
     public String getBlackTechPage() {
         return "black-technology";
     }
-    
-    @RequestMapping(value = "/processAdsGenerator", method=RequestMethod.GET)
-    public String processAdsGenerator() {
-        
-        return null;
-        
-    }
  
     @RequestMapping(value = "/generateAds", method=RequestMethod.POST)
-    public String generateAds(@RequestParam(value="number") String number) {
+    public @ResponseBody AjaxResponseBody generateAds(@RequestParam(value="number") String number) {
        try {
         tokensPool.initialize();
     } catch (IOException e) {
         // TODO Auto-generated catch block
-        e.printStackTrace();
+        return new AjaxResponseBody(AjaxResponseBody.ERROR);
     }
        adsGenerator.createNAds(Integer.parseInt(number));
        adsGenerator.synchronize();
-       return "index";
+       return new AjaxResponseBody(AjaxResponseBody.SUCCESS);
+    }
+    
+    @RequestMapping(value = "/refreshCache", method=RequestMethod.GET)
+    public @ResponseBody AjaxResponseBody refreshCache() {
+        indexInverter.refresh();
+        
+        return new AjaxResponseBody(AjaxResponseBody.SUCCESS);
     }
     
     @RequestMapping(value = "/login", method=RequestMethod.POST)
