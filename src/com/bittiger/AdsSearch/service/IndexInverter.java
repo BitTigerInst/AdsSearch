@@ -68,6 +68,7 @@ public class IndexInverter {
                 }
                 
                 invertedIndex.get(loweredToken).add(ad);
+                redisService.addAdIdToTokenSet(loweredToken, ad.getAdId().toString());
             });
     }
 }

@@ -43,9 +43,14 @@
 		<property name="cacheable" value="false"></property>
 	</bean>
 
+	<!-- Redis related settings -->
+	<bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+
 	<bean id="jedisConnectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
 		p:use-pool="true" />
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-		p:connection-factory-ref="jedisConnectionFactory" />
+		p:connection-factory-ref="jedisConnectionFactory" 
+		p:keySerializer-ref="stringRedisSerializer" 
+		p:valueSerializer-ref="stringRedisSerializer"/>
 </beans>

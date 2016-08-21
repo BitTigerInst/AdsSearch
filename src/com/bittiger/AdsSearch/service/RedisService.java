@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 public class RedisService {
     
     @Autowired
-    private RedisTemplate<String, String> template;
+    private RedisTemplate<String, String> redisTemplate;
     
     @Resource(name="redisTemplate")
-    private SetOperations setOps;
+    private SetOperations<String, String> tokenAds;
     
-    public void test() {
+    public void addAdIdToTokenSet(String loweredToken, String adId) {
+        tokenAds.add(loweredToken, adId);
     }
 }
