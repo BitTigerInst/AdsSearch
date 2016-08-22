@@ -1,17 +1,15 @@
 package com.bittiger.AdsSearch.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bittiger.AdsSearch.bean.AdBean;
 import com.bittiger.AdsSearch.model.Ad;
 import com.bittiger.AdsSearch.repository.AdDao;
 
@@ -21,27 +19,26 @@ public class IndexInverter {
     @Autowired
     private AdDao adDao;
     
-    private Map<String, Set<Ad>> invertedIndex;
-    
     @Autowired
     private RedisService redisService;
     
     public IndexInverter() {
-        this.invertedIndex = new HashMap<>();
     }
     
     public void refresh() {
-        this.invertedIndex.clear();
+        redisService.flushAll();
         this.process();
     }
     
-    public List<Ad> searchToken(String token) {
-        List<Ad> adList = new ArrayList<>();
-        if (invertedIndex.containsKey(token)) {
-            adList.addAll(this.invertedIndex.get(token));
-        }
+    public List<AdBean> searchToken(String token) {
+        Set<String> adsIds = redisService.searchAdsForToken(token);
         
-        return adList;
+        List<AdBean> ads =
+               adsIds.stream()
+               .map( (id) -> redisService.searchAdById(id))
+               .collect(Collectors.toList());
+        
+        return ads;
     }
     
     public void loadToMap(List<Ad> ads) {
@@ -54,7 +51,8 @@ public class IndexInverter {
     @PostConstruct
     public void process() {
         List<Ad> allAds = adDao.findAllAds();
-        
+        allAds.stream()
+            .forEach((ad) -> redisService.addAd(ad));
         this.loadToMap(allAds);
     }
     
@@ -63,11 +61,6 @@ public class IndexInverter {
             .stream()
             .map(token -> token.toLowerCase())
             .forEach(loweredToken -> {
-                if (!this.invertedIndex.containsKey(loweredToken)) {
-                    this.invertedIndex.put(loweredToken.toLowerCase(), new HashSet<Ad> ());
-                }
-                
-                invertedIndex.get(loweredToken).add(ad);
                 redisService.addAdIdToTokenSet(loweredToken, ad.getAdId().toString());
             });
     }

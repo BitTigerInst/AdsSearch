@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bittiger.AdsSearch.model.Ad;
+import com.bittiger.AdsSearch.bean.AdBean;
 
 @Service
 public class AdScoreCalculator {
@@ -19,7 +19,7 @@ public class AdScoreCalculator {
      * @param ad
      * @return
      */
-    public double calculateRelevanceScore(List<String> tokens, Ad ad) {
+    public double calculateRelevanceScore(List<String> tokens, AdBean ad) {
         int keywordsSize = ad.getTokens().size();
         
         HashSet<String> tokenSet = new HashSet<>(tokens);
@@ -33,7 +33,7 @@ public class AdScoreCalculator {
     }
     
     
-    public double calculateRankScore(List<String> tokens, Ad ad) {
+    public double calculateRankScore(List<String> tokens, AdBean ad) {
         return this.calculateRankScore(this.calculateQualityScore(tokens, ad), ad.getBid());
     }
     
@@ -41,7 +41,7 @@ public class AdScoreCalculator {
         return qualityScore * bid;
     }
     
-    public double calculateQualityScore(List<String> tokens, Ad ad) {
+    public double calculateQualityScore(List<String> tokens, AdBean ad) {
         return this.calculateQualityScore(this.calculateRelevanceScore(tokens, ad), ad.getProbClick());
     }
     

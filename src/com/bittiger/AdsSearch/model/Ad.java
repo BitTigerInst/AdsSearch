@@ -22,7 +22,7 @@ public class Ad {
     //TODO This need to be recovered later
     private String companyId;
     
-    private double probClick;
+    private Double probClick;
     
     private int bid;
     
@@ -94,7 +94,7 @@ public class Ad {
         this.content = content;
     }
 
-    public double getProbClick() {
+    public Double getProbClick() {
         return probClick;
     }
 

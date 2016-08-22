@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bittiger.AdsSearch.bean.AdBean;
-import com.bittiger.AdsSearch.model.Ad;
 
 @Service
 public class SearchService {
@@ -27,7 +26,7 @@ public class SearchService {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SearchService.class);
 
     public List<AdBean> search(String searchText) {
-        List<Ad> ads = new ArrayList<>();
+        List<AdBean> ads = new ArrayList<>();
         
         List<String> tokens = null;
         try {
@@ -44,10 +43,9 @@ public class SearchService {
         
         final List<String> finalTokens = tokens;
         List<AdBean> pagedAds = ads.stream()
-            .map(ad -> {
-                AdBean bean = new AdBean(ad);
-                bean.setRelevanceScore(calculator.calculateRelevanceScore(finalTokens, ad));
-                bean.setQualityScore(calculator.calculateQualityScore(bean.getRelevanceScore(), ad.getProbClick()));
+            .map(bean -> {
+                bean.setRelevanceScore(calculator.calculateRelevanceScore(finalTokens, bean));
+                bean.setQualityScore(calculator.calculateQualityScore(bean.getRelevanceScore(), bean.getProbClick()));
                 bean.setRankScore(calculator.calculateRankScore(bean.getQualityScore(), bean.getBid()));
                 
                 return bean;
