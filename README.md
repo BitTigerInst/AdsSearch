@@ -42,16 +42,22 @@ This project provides a website which user can search for ads matching with the 
     - [x] Authentication with Spring Security, React Route 
     - [x] Fake Ads generator
     - [x] Search page mockup
-    - [ ] Ads register page mockup
     - [x] Search page implementation
     - [x] Dao, Service methods and tests 
     - [x] Invert Index table
     - [x] Keywords matching part
     - [x] luncene integration
     - [x] update ranking 
-    - [ ] Redis Integration
-    - [ ] Fake action generator
+    - [x] Redis Integration
+  * Deploying Week (Aug 22 - Aug 29)
+    - [] Deploy on PaaS or IaaS
     
  ## Future Feature
-  	- [x] deploy on a platform
+  * Functionailities
+    - [] Implement User Authentication, aka, register, login, logout and remember-me.
+    - [] Add real actions, for example, the user's click on a single ad will trigger update for this ad's relative scores
+    - [] Add register ad page
+  * Architecture
+    - [] Figure out a cheap way to emulate a distributed system environment
+    - [] Use Cassandra instead of MongoDB
   
