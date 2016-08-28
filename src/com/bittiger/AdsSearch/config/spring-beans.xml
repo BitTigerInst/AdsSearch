@@ -16,7 +16,10 @@
 
 	<context:component-scan base-package="com.bittiger.AdsSearch">
 	</context:component-scan>
-
+	<!-- Read the default.properties, then read local properties -->	
+	<bean id="inetAddress" class="java.net.InetAddress" factory-method="getLocalHost"></bean>
+	<context:property-placeholder location="classpath:com/bittiger/AdsSearch/properties/default.properties, 
+								            classpath:com/bittiger/AdsSearch/properties/#{inetAddress.hostName}_app.properties" />
 	<!-- Configuration of view resolver -->
 	<bean id="thymeleafViewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine"></property>
