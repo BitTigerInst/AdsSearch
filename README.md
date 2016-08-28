@@ -50,7 +50,7 @@ This project provides a website which user can search for ads matching with the 
     - [x] update ranking 
     - [x] Redis Integration
   * Deploying Week (Aug 22 - Aug 29)
-    - [ ] Deploy on PaaS or IaaS
+    - [x] Deploy on PaaS or IaaSj, deployed on AWS
     
  ## Future Feature
   * Functionailities
