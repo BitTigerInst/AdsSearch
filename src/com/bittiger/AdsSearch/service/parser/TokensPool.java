@@ -65,7 +65,7 @@ public class TokensPool {
     @PostConstruct
     public HashMap<String, HashSet<String>> initialize() throws IOException {
         BufferedReader reader = null;
-        
+        logger.debug("Tokens processing at location: " +  props.getTokensFileLocation());
         try {
             reader = new BufferedReader(new FileReader(props.getTokensFileLocation()));
             String line;
