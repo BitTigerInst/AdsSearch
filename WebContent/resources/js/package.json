@@ -10,7 +10,7 @@
   "author": "Shiyao",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.11.0",
+    "axios": "^0.19.2",
     "express": "^4.13.4",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
